@@ -19,4 +19,4 @@ const operate = function(operator, num1, num2) {
    return operator(num1, num2)
 }
 
-console.log(operate(divide, 10, 5))
+console.log(operate(divide, 10, 20))
