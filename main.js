@@ -1,36 +1,62 @@
 const display = document.querySelector(".display");
 const numBtn = document.querySelectorAll(".numBtn");
 const opBtn = document.querySelectorAll(".opBtn");
+const equalBtn = document.querySelector(".equalBtn");
+const clearBtn = document.querySelector(".clearBtn");
+
+const add = function(a, b) {
+    return parseFloat(a) + parseFloat(b)
+}
+const subtract = function(a, b) {
+    return parseFloat(a) - parseFloat(b)
+}
+const multiply = function(a, b) {
+    return parseFloat(a) * parseFloat(b)
+}
+const divide = function(a, b) {
+    return parseFloat(a) / parseFloat(b)
+}
+const compute = function() {
+    let input = display.textContent.split(" ");
+    let result = 0;
+    let num1 = input[0];
+    let num2 = input[2];
+        if (input[1] === '+'){
+            result = add(num1, num2)
+                if(result % 1 !== 0){
+                    result = result.toFixed(2)
+                }
+        } else if (input[1] === "-"){
+            result = subtract(num1, num2)
+            if(result % 1 !== 0){
+                result = result.toFixed(2)
+            }
+        } else if (input[1] === "*"){
+            result = multiply(num1, num2)
+            if(result % 1 !== 0){
+                result = result.toFixed(2)
+            }
+        } else if (input[1] === "/"){
+            result = divide(num1, num2)
+            if(result % 1 !== 0){
+                result = result.toFixed(2)
+            }
+        }
+    display.textContent = result
+}
 
 numBtn.forEach((button) => {button.addEventListener('click', (e) => {
     display.textContent += e.target.value;
-    let firstNum = display.textContent;
 })})
 
 opBtn.forEach((button) => {button.addEventListener('click', (e) => {
-    display.textContent += e.target.value;
-    let op = display.textContent;
+    display.textContent += " " + e.target.value + " ";
 })})
 
-const add = function(a, b) {
-    return a + b
-}
-const subtract = function(a, b) {
-    return a - b
-}
-const multiply = function(a, b) {
-    return a * b
-}
-const divide = function(a, b) {
-    return a / b
-}
+equalBtn.addEventListener('click', () => {
+    compute()
+})
 
-let num1
-let operator
-let num2
-
-const operate = function(operator, num1, num2) {
-   return operator(num1, num2)
-}
-
-//console.log(operate(divide, 10, 20))
+clearBtn.addEventListener('click', () => {
+    display.textContent = ""
+})
