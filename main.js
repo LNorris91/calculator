@@ -16,32 +16,39 @@ const multiply = function(a, b) {
 const divide = function(a, b) {
     return parseFloat(a) / parseFloat(b)
 }
-const compute = function() {
+const operate = function() {
     let input = display.textContent.split(" ");
     let result = 0;
-    let num1 = input[0];
-    let num2 = input[2];
-        if (input[1] === '+'){
-            result = add(num1, num2)
-                if(result % 1 !== 0){
-                    result = result.toFixed(2)
+    
+    do {
+        let num1 = input[0];
+        let num2 = input[2];
+        let temp = 0
+            if (input[1] === '+'){
+                temp += add(num1, num2)
+                    if(temp % 1 !== 0){
+                        temp = temp.toFixed(2)
+                    }
+            } else if (input[1] === "-"){
+                temp += subtract(num1, num2)
+                if(temp % 1 !== 0){
+                    temp = temp.toFixed(2)
                 }
-        } else if (input[1] === "-"){
-            result = subtract(num1, num2)
-            if(result % 1 !== 0){
-                result = result.toFixed(2)
+            } else if (input[1] === "*"){
+                temp += multiply(num1, num2)
+                if(temp % 1 !== 0){
+                    temp = temp.toFixed(2)
+                }
+            } else if (input[1] === "/"){
+                temp += divide(num1, num2)
+                if(temp % 1 !== 0){
+                    temp = temp.toFixed(2)
+                }
             }
-        } else if (input[1] === "*"){
-            result = multiply(num1, num2)
-            if(result % 1 !== 0){
-                result = result.toFixed(2)
-            }
-        } else if (input[1] === "/"){
-            result = divide(num1, num2)
-            if(result % 1 !== 0){
-                result = result.toFixed(2)
-            }
-        }
+        input.splice(0, 3, temp)
+        result = temp
+    } while (input.length >= 3)
+
     display.textContent = result
 }
 
@@ -54,7 +61,7 @@ opBtn.forEach((button) => {button.addEventListener('click', (e) => {
 })})
 
 equalBtn.addEventListener('click', () => {
-    compute()
+    operate()
 })
 
 clearBtn.addEventListener('click', () => {
