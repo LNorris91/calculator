@@ -54,6 +54,7 @@ numBtn.forEach((button) => {button.addEventListener('click', (e) => {
     } else {
     display.textContent += e.target.value;
     }
+    decimalBtn.disabled = false
     if (display.textContent.includes(".")) {
         decimalBtn.disabled = true
     }
