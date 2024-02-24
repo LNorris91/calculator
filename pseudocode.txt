@@ -1,0 +1,15 @@
+I need to rewrite my calculator code to function how they actually specified it to work.
+
+I might do this another day and continue to make my current version work. 
+
+But if I were to do this I need the following:
+
+An empty array to store calculations
+
+Number Button function to still print the numbers into the display
+
+Operator button function to not print to display but when pressed it will store the display value in array, along with the operator button value (splicing?) [FIRST] if the array is =>3 then run my loop to execute calculation and update display then remove first three array items and replace it with the current answer.
+
+Repeat above steps
+
+Equal button will run the same function to find current calculation. 
