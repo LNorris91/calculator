@@ -47,6 +47,9 @@ button {
    color: white;
    border: 1px solid white;
    border-radius: 8px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 }
 .opBtn {
     background-color: rgb(23, 44, 32);
