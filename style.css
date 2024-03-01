@@ -19,6 +19,7 @@ body {
     width: 80%;
     max-width: 600px;
     
+    
 }
 .display {
     display: flex;
@@ -27,8 +28,9 @@ body {
     font-size: 4rem;
     font-family: 'Courier New', Courier, monospace;
     height: 3rem;
-    width: 100%;
+    max-width: 95%;
     margin-bottom: 1rem;
+    overflow: auto;
 }
 .buttons {
     display: flex;
